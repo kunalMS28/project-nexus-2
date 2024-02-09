@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epicurean Essence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4623a1402b.js" crossorigin="anonymous"></script>
+    <style>
+        #img{
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100vh;
+        };
+    </style>
+</head>
+<body >
+    <!-- complete body of website -->
+<!-- starting section of website -->
+    <section class=" flex  flex-col  md:flex-row ">
+        
+         
+        <!-- content section  -->
+        <div class="w-full space-x-3 md:w-1/5 flex flex-row  md:flex-col justify-center items-center space-y-7 font-extrabold text-cyan-800 bg-slate-300 text-lg"> 
+            <button class="hidden md:inline-block" onclick="dropdown('caboutus', 'aboutus')" id="caboutus">
+                About us</button>
+                
+            <button  onclick="dropdown('courchefs', 'ourchefs')" id="courchefs">
+               Our chef's </button>
+
+            <button onclick="dropdown('cmenu', 'menu')" id="cmenu">Menu</button>
+
+            <button onclick="dropdown('cspecials', 'specials')" id="cspecials ">Special's
+            </button>
+            
+            <div><a href="#bottom">contact us </a></div>
+        </div>
+         
+
+
+        <!-- image of food -->
+        
+        <div id="img" class=" bg-blend-hard-light w-full md:max-width-4/5 ">
+            <img src="images/food5.jpg" class="object-none md:object-fill h-screen " alt="">
+            <p class="relative top-[-500px] my-auto mx-auto  text-7xl font-bold drop-shadow-4xl  text-cyan-600">Epicurean </p>
+            <p class="absolute drop-shadow-4xl right-5 bottom-2 text-8xl font-bold text-cyan-200"> Essence</p>
+        </div>
+
+    </section>
+
+    <!-- about us section  -->
+   <section id="aboutus" class=" flex justify-center items-center object-fill h-screen bg-slate-600">
+    <div class="w-full md:w-2/3  md:border-8  rounded-[90px] p-10  ">
+        <div class=" mx-auto w-full md:w-2/3 border-2 rounded-[10px] border-cyan-800 bg-slate-100 text-cyan-800 flex space-y-4 p-5 flex-col justify-center items-center">
+            <h1 class="text-4xl font-extrabold mx-auto animate-pulse">About us</h1>
+            <p class="text-lg">Welcome to [Restaurant Name], where culinary excellence meets warm hospitality. Our passion for delivering delightful dining experiences is evident in every dish we craft. With a commitment to using the finest, locally sourced ingredients, our chefs create mouthwatering dishes that celebrate flavor. Join us for a journey of gastronomic delights, served in a charming ambiance that reflects our dedication to creating memorable moments for our cherished guests.</p>
+
+
+
+        </div>
+    </div>
+   </section>
+
+  <!-- chefs section  -->
+ <section  class="  md:h-screen bg-slate-300 text-cyan-800 flex flex-col justify-center space-y-3" id="ourchefs">
+    <h1 class="mx-auto text-4xl font-extrabold my-2 animate-pulse text-center">  Our Culinary Maestros</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 px-10 space-y-2 md:space-x-5">
+    <!-- chef1  -->
+ <div class=" bg-slate-200 border-2 rounded-[50px]  p-5 drop-shadow-2xl">
+    <img src="images/sanjeev-forbes.jpg" alt="sanjeev Kapoor" width="280rem" height="280rem"  class="border rounded-[40px] mx-auto">
+    <p class="mt-3 px-6"><b>Sanjeev Kapoor</b> is a renowned Indian chef, author, and television personality, celebrated for promoting Indian cuisine globally through his expertise.</p>
+ </div>
+  <!-- chef2  -->
+ <div class="bg-slate-200 border-2 rounded-[50px] mx-auto p-5 drop-shadow-2xl ">
+    <img src="images\ManeetChauhan.jpg" alt="ManeetChauhan" width="300rem" height="300rem"class="border rounded-[40px] mx-auto">
+    <p class="mt-3 px-6"><b>Maneet Chauhan</b> is an accomplished Indian-American chef, restaurateur, and TV personality, celebrated for her culinary expertise and appearances on competitive cooking shows</p>
+ </div>
+ <!-- chef 3 -->
+ <div class="bg-slate-200 border-2 rounded-[50px] mx-auto p-5 drop-shadow-2xl">
+    <img src="images/vikas khanna.jpg" alt="vikas khanna" width="300rem" height="300rem" class="border rounded-[40px] mx-auto">
+    <p class="mt-3 px-6"><b>Vikas Khanna</b> is a renowned Indian chef, restaurateur, and author. His culinary expertise and humanitarian work have gained global recognition. </p>
+ </div>
+</div>
+
+ </section>
+
+ <!-- section menu /  -->
+ <section class="  bg-slate-600 object-fill  py-2 px-5 flex flex-col space-y-2 md:flex-row justify-center md:space-x-4" id="menu">
+    <img src="images/menu1.jpg" alt="menu1"> 
+   <img src="images/menu2.jpg" alt="menu2">
+
+ </section>
+
+ <!-- special's section  -->
+ <section  class="   bg-slate-300 text-cyan-800 flex flex-col justify-center space-y-3" id="specials">
+    <h1 class="mx-auto text-4xl font-extrabold my-2 animate-pulse">  special's</h1>
+    <div class="grid grid-cols-1 space-y-2 md:grid-cols-5 px-10 space-x-5">
+    <!-- 1  -->
+ <div class=" bg-slate-200 border-2 rounded-[50px]  p-5 drop-shadow-2xl">
+    <img src="images/bruscheta.jpg" alt="sanjeev Kapoor" width="280rem" height="280rem"  class="border rounded-[40px] mx-auto">
+    <p class="mt-3 "><b>Starter: Bruschetta</b> <br>Bruschetta is a classic Italian starter that consists of grilled bread rubbed with garlic, topped with ripe tomatoes, fresh basil, and drizzled with olive oil. It's a flavorful and light appetizer.</p>
+ </div>
+  <!-- 2  -->
+ <div class="bg-slate-200 border-2 rounded-[50px] mx-auto p-5 drop-shadow-2xl ">
+    <img src="images\coffee.jpg" alt="ManeetChauhan" width="300rem" height="300rem"class="border rounded-[40px] mx-auto">
+    <p class="mt-3 "><b>Beverage: Coffee</b> <br> Coffee is a globally cherished beverage, brewed from roasted coffee beans. Known for its rich flavor and stimulating effects due to caffeine, it has become a cultural icon, fostering social connections.</p>
+ </div>
+ <!--  3 -->
+ <div class="bg-slate-200 border-2 rounded-[50px] mx-auto p-5 drop-shadow-2xl">
+    <img src="images/padThai2.jpg" alt="vikas khanna" width="300rem" height="300rem" class="border rounded-[40px] mx-auto">
+    <p class="mt-3 "><b>Main Course: Pad Thai</b><br> Pad Thai is a well-known Thai dish that features stir-fried rice noodles with a combination of ingredients like shrimp, tofu, bean sprouts, peanuts, and lime.  </p>
+ </div>
+ <!-- 4  -->
+ <div class="bg-slate-200 border-2 rounded-[50px]  p-5 drop-shadow-2xl">
+    <img src="images/Tiramisu2.jpg" alt="sanjeev Kapoor" width="280rem" height="280rem"  class="border rounded-[40px] mx-auto">
+    <p class="mt-3 "><b>Dessert: Tiramisu</b> <br> Tiramisu is a classic Italian dessert made with layers of coffee-soaked ladyfingers and a mascarpone cheese mixture, topped with cocoa powder. It's a delightful and indulgent sweet treat.</p>
+ </div>
+ <!-- 5 -->
+ <div class=" sm:w-full bg-slate-200 border-2 rounded-[50px]  p-5 drop-shadow-2xl">
+    <img src="images/sushi.jpg" alt="sanjeev Kapoor" width="280rem" height="280rem"  class="border rounded-[40px] mx-auto">
+    <p class="mt-3 "><b>Snack: Sushi (Japanese)</b> <br>Sushi, a Japanese delicacy, can also be enjoyed as a snack. Sushi rolls, such as maki rolls with seaweed, rice, and various fillings, make for a delicious and bite-sized snack option.</p>
+ </div>
+</div>
+
+<footer class="bg-slate-600 text-green-300">
+<h3 class="mx-auto text-center text-2xl " id="bottom">....O <b>Contact US</b> O....</h3>
+
+<br>
+<br>
+
+<p>Contact us for Reservations & to Order Online</p>
+<br>
+<p>Location: Mankeshwar Road, Hanuman Mandir, Mankeshver, Parenda, Maharashtra 413504</p>
+<br>
+<div class="flex flex-col  justify-around my-5 px-5 space-y-2">
+    <a href=""><i class="fa fa-phone-square" aria-hidden="true" ></i> <b>Call for More Info</b></a>
+    <a href=""><i class="fa fa-envelope" aria-hidden="true"></i>  <b>Mail us ..</b></a>
+    <a href=""> <i class="fa fa-instagram" aria-hidden="true"></i> <b>instagram</b></a>
+ </footer>  
+    
+</div>
+
+ </section>
+
+
+ 
+ 
+    
+</body>
+
+
+   <script>
+    function dropdown(currentid, gotoid) {
+        document.getElementById(currentid).onclick = function(e) {
+            e.preventDefault();
+
+            var targetSection = document.getElementById(gotoid);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            } else {
+                console.error('Element with ID ' + gotoid + ' not found.');
+            }
+        };
+    }
+</script>
+
+
+
+</html>

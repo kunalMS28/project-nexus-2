@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+    <div
+        class=" mt-10 bg-stone-300 flex flex-col  w-full md:w-1/3 mx-auto space-y-10 border-2 border-black rounded-[40px] p-5">
+        <!-- button for log in and signup  -->
+        <div class="  mx-auto  border-2 black rounded-[10px]">
+            <button class="p-2 bg-purple-500 font-bold text-white rounded-[10px] ">
+                <a>sign up</a>
+            </button>
+            <button class="     font-bold text-orange-950 ">
+                <a href="login.html"class="px-2">log in</a>
+            </button>
+           
+        </div>
+
+        <img src="add-friend.png" alt="sigup image" class="w-[90px] mx-auto">
+        <!-- heading  -->
+        <h1 class="flex justify-center text-4xl text-orange-950 font-extrabold">Sign Up</h1>
+
+        <!-- details  -->
+        <form class="space-y-3" id="Form">
+
+            <!-- email  -->
+            <div>
+                <label for="email" class="font-bold text-orange-950  text-xl" required>Email : </label>
+                <input type="email" name="email_id" placeholder="please enter your email"
+                   id="email" class="w-full px-3 border-2 rounded-[40px]">
+            </div>
+
+            <!-- mobile number -->
+            <div>
+                <label for="mobno" class="font-bold text-orange-950  text-xl" required>User_Name</label>
+                <input type="text" name="mobno" id="mobno" placeholder="please enter username." class="w-full  px-3 border-2 rounded-[40px]">
+            </div>
+
+            <!-- password  -->
+            <div>
+                <label for="pass" class="font-bold text-orange-950  text-xl" required> Password :</label>
+                <input type="password" name="password" id="pass" class="w-full  px-3 border-2  rounded-[40px]"
+                    placeholder="Create Password">
+            </div>
+            <!-- confirmPassword  -->
+            <div>
+                <label for="pass" class="font-bold text-orange-950  text-xl" required> Confirm Password :</label>
+                <input type="password" name="Confirm password" id="Cpass" class="w-full  px-3 border-2 rounded-[40px]"
+                    placeholder="Confirm Password">
+            </div>
+
+            <!-- sign up button -->
+            <div class="flex justify-center"  >
+                <button type="button" id="signup" class=" w-20 py-2 font-bold text-orange-950 border-4 white rounded-[10px] 
+                 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-stone-600 hover:text-white" >
+                  Sign up
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import {getDatabase, ref, child, get, set} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyBAw73ShYEOs3BkMR5ghq0ZpDpyDhEqsMg",
+  authDomain: "hotel-login-37c4b.firebaseapp.com",
+  projectId: "hotel-login-37c4b",
+  storageBucket: "hotel-login-37c4b.appspot.com",
+  messagingSenderId: "1075700540532",
+  appId: "1:1075700540532:web:cd5496375a13b8f8515d21",
+  measurementId: "G-RB63C2Y1LG"
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase();
+// Sign Up elements
+const email = document.getElementById("email");
+const user = document.getElementById("mobno");
+const password = document.getElementById("pass");
+const confirm_password = document.getElementById("Cpass")
+const signUp = document.getElementById("signup")
+
+
+console.log()
+function AddData(){
+    set(ref(db, 'Customer/' + user.value),{
+        cust_email: email.value,
+        cust_user: user.value,
+        cust_password: password.value 
+    }).then(()=>{
+        alert("Welcome!!! Thank You For Signing Up with us.");
+        window.location.href = "login.html";
+    }).catch((error)=>{
+        alert("Unsuccessful USER ID ALERADY USED!!!");
+        console.log(error);
+    })
+}
+
+
+
+signUp.addEventListener("click",ValidPassword);
+function ValidPassword(){
+    console.log(password.value, confirm_password.value);
+    if(password.value === confirm_password.value){
+        AddData();
+    }else if(password.value === null){
+        alert("Please Enter password");
+    }
+    else{
+        alert("password does't match with confirm password");
+    }
+}
+
+    </script>
+</body>
+
+</html>

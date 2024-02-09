@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+    <div
+        class=" mt-10 bg-stone-300 flex flex-col  w-full md:w-1/3 mx-auto space-y-10 border-2 border-black rounded-[40px] p-5">
+        <!-- button for log in and signup  -->
+        <div class="  mx-auto  border-2 black rounded-[10px]">
+            <button class="font-bold text-orange-950"><a href="index.html" class="p-2 ">sign up</a></button>
+            <button class=" bg-purple-500 p-2 border rounded-[10px] font-bold text-white">
+                <a >log in</a>
+            </button>
+            
+        </div>
+
+        <img src="login.png" alt="login image" class="mx-auto w-[90px]">
+        <h1 class="flex justify-center text-4xl text-orange-950 font-extrabold">Log In</h1>
+
+        <!-- details -->
+        <div class="space-y-3">
+            
+
+            <!-- email  -->
+            <div>
+                <label for="email" class="font-bold text-orange-950 text-xl">User Name : </label>
+                <input type="text" name="email" id="semail" placeholder="please enter your email"
+                    class="w-full px-3 border-2 rounded-[40px]">
+            </div>
+
+            <!-- password  -->
+            <div>
+                <label for="pass" class="font-bold text-orange-950  text-xl">Password :</label>
+                <input type="password" name="password" id="spass" class="w-full  px-3 border-2 rounded-[40px]"
+                    placeholder="enter your Password">
+            </div>
+            <p id = "noAccount" style="display: none;">Don't have an account ,please <a href="signup.html" class="text-orange-950 font-bold">sign up</a></p>
+            <p><a href="#" class="text-violet-500 font-bold">Forgot password?</a></p>
+            <!-- log in button -->
+            <div class="flex justify-center">
+                <button class=" w-20 py-2 font-bold text-orange-950 border-4 white rounded-[10px] 
+                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-stone-600 hover:text-white" 
+                id="singIn" 
+                >Log In</button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import {getDatabase, ref, child, get, set} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyBAw73ShYEOs3BkMR5ghq0ZpDpyDhEqsMg",
+  authDomain: "hotel-login-37c4b.firebaseapp.com",
+  projectId: "hotel-login-37c4b",
+  storageBucket: "hotel-login-37c4b.appspot.com",
+  messagingSenderId: "1075700540532",
+  appId: "1:1075700540532:web:cd5496375a13b8f8515d21",
+  measurementId: "G-RB63C2Y1LG"
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase();
+
+// Sign in elements
+const semail = document.getElementById("semail");
+const spassword = document.getElementById("spass");
+const singIn = document.getElementById("singIn");
+
+
+let pass;
+function RetData(){
+    const dbRef = ref(db);
+    console.log(semail.value);
+    get(child (dbRef, 'Customer/' + semail.value))
+    .then((snapshot)=>{
+        console.log(snapshot);
+        if(snapshot.exists()){
+            pass = snapshot.val().cust_password;
+            console.log(pass);
+            CheckPassword();
+        }
+        else{
+            document.getElementById("noAccount").style.display = 'block';
+            document.getElementById("noAccount").style.color = 'red';
+        }
+    })
+    .catch((error)=>{
+        alert("Wrogn User Id");
+        console.log(error);
+    })
+}
+
+singIn.addEventListener("click",RetData);
+
+function CheckPassword(){
+    if(pass === spassword.value){
+        window.location.href = "home.html";
+    }
+    else{
+        alert("Wrong Password!!");
+    }
+}
+
+
+
+    </script>
+</body>
+
+</html>
